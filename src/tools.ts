@@ -33,7 +33,7 @@ export function executeTool(name: string, args: any, user: User) {
     admin: false,
     run: (a: any) => ({ generic: true, args: a }),
   };
-  if (tool.admin && user.role !== "admin" && args?.confirmAdmin !== true)
+  if (tool.admin && user.role !== "admin")
     throw new Error("forbidden");
   return tool.run(args, user);
 }
